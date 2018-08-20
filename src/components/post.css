@@ -1,0 +1,18 @@
+.header {
+  margin: 3em 0em;
+  text-transform: 'uppercase';
+  font-size: '2em';
+}
+
+.divider {
+  margin: 3em 0em;
+}
+
+.text {
+  font-size: 1.33em;
+}
+
+.segment {
+  border-bottom: 0em !important;
+  padding: 8em 0em;
+}
