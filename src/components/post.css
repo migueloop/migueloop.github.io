@@ -2,14 +2,15 @@
   margin: 3em 0em;
   text-transform: 'uppercase';
   font-size: '2em';
+  color: @black;
 }
 
 .divider {
   margin: 3em 0em;
 }
 
-.text {
-  font-size: 1.33em;
+.summary {
+  font-size: 1.13em;
 }
 
 .segment {

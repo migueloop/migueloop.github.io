@@ -5,34 +5,32 @@ import Post from './post.js';
 
 
 class PostsList extends Component {
-constructor(){
-    super();
-    this.state = {
-        posts : []
+    constructor(){
+        super();
+        this.state = {
+            posts : []
+        }
     }
-}
-componentDidMount() {
-    // fetch('')
-    // .then(results => {
-    //     console.log("RESULT", results)
-    //     return results.json();
-    // })
-    // .then(data => {
-    //     let thing = data.thing
-    //     return(
-    //     <Post title="hola" summary="hola1" tags="test test2 test3"></Post>
-    //     )
-    // })
-} 
-  render() {
-    return (
-        <div className="posts-list">
-            {/* {this.state.posts} */}
-            <Post title="test 1" summary="this is a test text" tags="test test2 test3"></Post>
-            <Post title="test 2" summary="this is another test text" tags="test test2 test3"></Post>
-        </div>
-    );
-  }
+
+    componentDidMount() {
+        fetch('https://dev.to/api/articles?username=saltyshiomix')
+        .then(res => res.json())
+        .then(posts => {
+            let htmlPosts = posts.map(p => <Post title={p.title} summary={p.description} tags={p.tag_list} url={p.url}/>)
+            this.setState({"posts" : htmlPosts})
+        })}
+
+    render() {
+        const { posts } = this.state;
+        console.log(posts)
+        return (
+            <div className="posts-list">
+                {
+                posts.length > 0 ? posts : 'Sorry no posts yet'
+                }
+            </div>
+        )
+    }
 }
 
 export default PostsList;

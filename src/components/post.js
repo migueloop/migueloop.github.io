@@ -7,28 +7,42 @@ import {
     Divider,
     Header,
     Segment,
+    Label,
   } from 'semantic-ui-react'
 
 class Post extends Component {
+
   render() {
+
+    const { tags, summary, title, url } = this.props;
+
     return (
         <Segment className='segment' vertical>
           <Container text>
-            <Header className='header' as='h3'>
-              {this.props.title}
+            <Header className='header' as='h2'>
+              <a href={url} target="_BLANK"> {title} </a>
             </Header>
             <p className='text'>
-              {this.props.summary}
+              {summary}
             </p>
-            <Button as='a' size='large'>
-              Read More
+            <a href={url} target="_BLANK">
+            <Button inverted color='blue'>
+              Read more
             </Button>
+            </a>
             <Divider
               as='h4'
               className='divider'
               horizontal
             >
-              <a href='#'> {this.props.tags}</a>
+              {
+                tags 
+                ? tags.map(t => 
+                  (
+                    <Label as='a' tag> <a href={`https://dev.to/t/${t}`} target="_BLANK"> {t} </a> </Label>)
+                  )
+                : ''
+              }
             </Divider>
           </Container>
       </Segment>
