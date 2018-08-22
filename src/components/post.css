@@ -2,7 +2,10 @@
   margin: 3em 0em;
   text-transform: 'uppercase';
   font-size: '2em';
-  color: @black;
+}
+
+.header a {
+  color: #D9FE96;
 }
 
 .divider {

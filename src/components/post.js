@@ -39,7 +39,7 @@ class Post extends Component {
                 tags 
                 ? tags.map(t => 
                   (
-                    <Label as='a' tag> <a href={`https://dev.to/t/${t}`} target="_BLANK"> {t} </a> </Label>)
+                    <Label as='a' color='orange'> <a href={`https://dev.to/t/${t}`} target="_BLANK"> {t} </a> </Label>)
                   )
                 : ''
               }
